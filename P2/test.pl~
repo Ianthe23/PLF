@@ -1,0 +1,8 @@
+% Pastrarea numai primei aparitii a fiecarui numar dintr-o lista.
+%
+% eliminare(L:list, E:Integer, Rez:list) (i,i,o) - det.
+eliminare([], _, []):-!.
+eliminare([E|T], E, Rez):-!,
+    eliminare(T, E, Rez).
+eliminare([H|T], E, [H|Rez]):-
+    eliminare(T, E, Rez).
