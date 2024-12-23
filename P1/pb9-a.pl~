@@ -1,0 +1,7 @@
+% Sa se scrie un predicat care intoarce intersectia a doua multimi.
+%
+% exista(L:list, E:Integer) (i,i) - determinist
+exista([], _):-fail.
+exista([E|_], E):-!.
+exista([_|T], E):-
+    exista(T, E).

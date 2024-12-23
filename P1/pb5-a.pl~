@@ -1,0 +1,10 @@
+% Sa se scrie un predicat care sterge toate aparitiile unui anumit atom
+% dintr-o lista.
+%
+% eliminare(L:list, A:atom, Rez:list), (i,i,o) - determinist
+eliminare([], _, []):-!.
+eliminare([H|T], A, [H|Rez]):-
+    H =\= A, !,
+    eliminare(T, A, Rez).
+eliminare([_|T], A, Rez):-
+    eliminare(T, A, Rez).

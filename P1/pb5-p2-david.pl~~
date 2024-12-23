@@ -1,0 +1,46 @@
+%a)Get the list of positions of the maximal element in a given list
+%
+% maximal(L:list, Maxim), (i,o) - determinist
+maximal([], -1):-!.
+maximal([H|T], MaximNou):-
+    maximal(T, Maxim),
+    H > Maxim, !,
+    MaximNou = H.
+maximal([_|T], Maxim):-
+    maximal(T, Maxim).
+
+% positions(L:list, I:Integer, Maxim:Integer, Rez:list) (i,i,i,o) -
+% determinist
+positions([], _, _, []):-!.
+positions([H|T], I, Maxim, [I|Rez]):-
+    H =:= Maxim, !,
+    Index is I + 1,
+    positions(T, Index, Maxim, Rez).
+positions([_|T], I, Maxim, Rez):-
+    Index is I + 1,
+    positions(T, Index, Maxim, Rez).
+
+% list_of_pos(L:list, C:list, Rez:list) (i,i,o) - determinist
+list_of_pos(L, C, Rez):-
+    maximal(C, Maxim),
+    positions(L, 1, Maxim, Rez).
+
+
+%altfel(L:list, I:Integer, Maxim:Integer, Rez:list) (i,i,i,o)
+altfel([], _, _, []) :- !.
+altfel([H|T], I, Maxim, [I|Rez]) :-
+    H > Maxim,
+    !,
+    Index is I + 1,
+    MaximNou = H,
+    Rez = [],
+    altfel(T, Index, MaximNou, Rez).
+altfel([H|T], I, Maxim, Rez) :-
+    H =:= Maxim,
+    !,
+    Index is I + 1,
+    altfel(T, Index, Maxim, RestRez),
+    Rez = [I|RestRez].
+altfel([_|T], I, Maxim, Rez) :-
+    Index is I + 1,
+    altfel(T, Index, Maxim, Rez).
