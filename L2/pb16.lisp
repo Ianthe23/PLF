@@ -23,4 +23,4 @@
 )
 
 (print (echilibrat '(1 (2 (4 () (7)) ()) (3 (5) (6)))))
-(print (echilibrat '(1 (2 () ()) (3 (4 () (5)) ()))))
+(print (echilibrat '(1 (2) (3 (4 () (5)) ()))))
