@@ -1,0 +1,13 @@
+% Dandu-se o lista formata din nr. intregi, sa se genereze lita
+% permutarilor avand proprietatea ca valoarea absoluta a diferentei
+% dintre doua valori consecutive este <=3.
+%
+% sterge(L:list, E:list, Rez:list)
+% model de flux (i,i,o)
+sterge([], _, []):-!.
+sterge([H|T], E, [H|Rez]):-
+    H \= E, !,
+    sterge(T, E, Rez).
+sterge([E|T], E, T).
+
+%
