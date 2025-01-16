@@ -27,10 +27,13 @@ aranjamente(L, K, P, C):-
 aranjamente_aux(_, K, P, Col, P, K, Col):-!.
 aranjamente_aux(L, K, P, C, Prod, Lg, [H|Col]):-
     candidat(L, E),
-    H > E,
     sterge(L, E, Rez),
     Prod1 is Prod * E,
     Prod1 =< P,
     Lg1 is Lg + 1,
     Lg1 =< K,
     aranjamente_aux(Rez, K, P, C, Prod1, Lg1, [E|[H|Col]]).
+
+
+f([], 0).
+f([H|T], S):-f(T, S1), S1 is S-H.

@@ -33,7 +33,7 @@ permutari_aux(N, C, Lg, [H|Col]):-
     Max is 2 * N - 1,
     candidat(N, Max, E),
     E =< Max,
-    apare(Col, E),
+    apare([H|Col], E),
     Lg1 is Lg + 1,
     Lg1 =< N,
     Dif is H - E,

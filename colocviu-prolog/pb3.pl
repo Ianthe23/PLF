@@ -41,3 +41,8 @@ permutari_aux(N, C, Lg, [H|Col]):-
     Rez =< 2,
     permutari_aux(N, C, Lg1, [E|[H|Col]]).
 
+
+f([], []).
+f([H|T], [H|S]):-f(T,S).
+f([H|T], S):-H mod 2 =:= 0, f(T, S).
+
